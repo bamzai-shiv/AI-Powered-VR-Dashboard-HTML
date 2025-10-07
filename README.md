@@ -23,7 +23,7 @@ WebGL or Canvas (for neural particle effects, if implemented)
 
 Installation
 Clone the repository:
-git clone https://github.com/yourusername/electra-neural-dashboard.git
+git clone https://github.com/bamzai-shiv/AI-Powered-VR-Dashboard-HTML
 
 Open index.html in your preferred web browser.
 
