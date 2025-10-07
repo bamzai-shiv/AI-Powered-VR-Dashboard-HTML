@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (same head as index.html) -->
+  <title>Electra - History</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font links ... -->
+</head>
+<body>
+  <div class="cyber-grid"></div>
+  <div class="ambient-light"></div>
+  <div class="container">
+    <header class="header">
+      <!-- ... same header as index.html ... -->
+    </header>
+    <main>
+      <div class="page-header">
+        <h1 class="page-title">History & Charging Analytics</h1>
+        <div class="page-subtitle">Review your charges, stations and trip routes</div>
+      </div>
+      <div class="dashboard-row">
+        <div class="card" style="flex:2;">
+          <div class="card-header"><i class="fas fa-chart-line"></i> Charging History</div>
+          <div class="charts-section">
+            <div class="chart-container"><canvas id="historyChart"></canvas></div>
+          </div>
+          <div class="overview-data">
+            <h3>87 kWh</h3>
+            <p>Total charged this week</p>
+            <div class="trend positive"><i class="fa fa-arrow-up"></i> Up 6%</div>
+          </div>
+        </div>
+        <div class="card" style="flex:1;">
+          <div class="card-header"><i class="fas fa-bolt"></i> Energy Breakdown</div>
+          <div style="padding:19px;">
+            <ul style="list-style:none;padding:0;margin:0;">
+              <li>Home: 45 kWh</li>
+              <li>Stations: 32 kWh</li>
+              <li>Network: 10 kWh</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- floating quick-actions ... -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

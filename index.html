@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electra - Futuristic EV Charging Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="ambient-light"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="energy-pulse"></div>
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <!-- <span class="logo-text">ΞLΞCTRA</span> -->
+                <!-- <div class="version-tag">v2.0</div> -->
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item active" data-page="dashboard">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <span>Dashboard</span>
+                    <div class="nav-glow"></div>
+                </a>
+                <a href="stations.html" class="nav-item" data-page="stations">
+                    <div class="nav-icon"><i class="fas fa-charging-station"></i></div>
+                    <span>Stations</span>
+                    <div class="nav-glow"></div>
+                </a>
+                <a href="trips.html" class="nav-item" data-page="trips">
+                    <div class="nav-icon"><i class="fas fa-route"></i></div>
+                    <span>My Trips</span>
+                    <div class="nav-glow"></div>
+                </a>
+                <a href="history.html" class="nav-item" data-page="history">
+                    <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                    <span>History</span>
+                    <div class="nav-glow"></div>
+                </a>
+                <a href="profile.html" class="nav-item" data-page="profile">
+                    <div class="nav-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <span>Profile</span>
+                    <div class="nav-glow"></div>
+                </a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="cyber-search" placeholder="Neural Search..." id="neuralSearch">
+                    <div class="search-glow"></div>
+                </div>
+                <div class="notification-center" id="notificationCenter">
+                    <div class="notification-icon"><i class="fas fa-bell"></i></div>
+                    <div class="notification-badge" id="notificationBadge">3</div>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h4>Neural Notifications</h4>
+                            <button class="clear-all-btn">Clear All</button>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon-small success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h5>Charging Complete</h5>
+                                <p>Tesla Model S • Neo-Tokyo Hub</p>
+                                <span class="notification-time">2 min ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon-small warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h5>Station Availability Alert</h5>
+                                <p>Your favorite station is now available</p>
+                                <span class="notification-time">15 min ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon-small info">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h5>Route Optimization</h5>
+                                <p>New efficient route discovered</p>
+                                <span class="notification-time">1 hour ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-assistant" id="aiAssistant">
+                    <div class="ai-icon"><i class="fas fa-robot"></i></div>
+                    <div class="ai-status active" id="aiStatus"></div>
+                    <div class="ai-tooltip">Neural AI Assistant</div>
+                </div>
+                <div class="profile-zone" id="profileZone">
+                    <div class="profile-avatar">
+                        <img src="https://via.placeholder.com/40x40/00ffff/000000?text=U" alt="User">
+                        <div class="status-ring"></div>
+                    </div>
+                    <div class="profile-info">
+                        <div class="username">Neo.User</div>
+                        <div class="energy-level">Energy: <span id="userEnergyLevel">89%</span></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Top Row -->
+            <div class="dashboard-row">
+                <!-- Vehicle Control Hub -->
+                <div class="card vehicle-hub">
+                    <div class="card-header">
+                        <h3><i class="fas fa-car"></i> Vehicle Neural Interface</h3>
+                        <div class="quantum-selector">
+                            <select class="cyber-dropdown" id="vehicleSelector">
+                                <option value="tesla-model-s">Tesla Model S Plaid+</option>
+                                <option value="cybertruck">Cybertruck</option>
+                                <option value="bmw-ix">BMW iX M60</option>
+                                <option value="lucid-air">Lucid Air Dream</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="holographic-display">
+                        <div class="vehicle-hologram">
+                            <div class="holo-car">
+                                <div class="car-mesh">
+                                    <div class="car-body"></div>
+                                    <div class="car-windows"></div>
+                                    <div class="wheel-assembly">
+                                        <div class="wheel front"></div>
+                                        <div class="wheel rear"></div>
+                                    </div>
+                                    <div class="energy-flow"></div>
+                                </div>
+                                <div class="scan-lines"></div>
+                            </div>
+                            <div class="battery-core">
+                                <div class="core-rings">
+                                    <div class="ring"></div>
+                                    <div class="ring"></div>
+                                    <div class="ring"></div>
+                                </div>
+                                <div class="power-level" id="powerLevel">87%</div>
+                            </div>
+                        </div>
+                        <div class="vehicle-status-indicators">
+                            <div class="status-indicator" id="connectionStatus">
+                                <i class="fas fa-wifi"></i>
+                                <span>Connected</span>
+                            </div>
+                            <div class="status-indicator" id="chargingStatus">
+                                <i class="fas fa-plug"></i>
+                                <span>Idle</span>
+                            </div>
+                            <div class="status-indicator" id="climateStatus">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>22°C</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="neural-stats">
+                        <div class="stat-module" id="chargeTimeModule">
+                            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                            <div class="stat-data">
+                                <span class="stat-value" id="chargeTimeValue">23</span>
+                                <span class="stat-label">Full Charge</span>
+                                <span class="stat-unit">min</span>
+                            </div>
+                        </div>
+                        <div class="stat-module" id="rangeModule">
+                            <div class="stat-icon"><i class="fas fa-road"></i></div>
+                            <div class="stat-data">
+                                <span class="stat-value" id="rangeValue">534</span>
+                                <span class="stat-label">Neural Range</span>
+                                <span class="stat-unit">km</span>
+                            </div>
+                        </div>
+                        <div class="stat-module" id="costModule">
+                            <div class="stat-icon"><i class="fab fa-bitcoin"></i></div>
+                            <div class="stat-data">
+                                <span class="stat-value" id="costValue">₿0.018</span>
+                                <span class="stat-label">Quantum Cost</span>
+                                <span class="stat-unit">BTC/kW</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicle-controls">
+                        <button class="control-btn" id="preConditionBtn">
+                            <i class="fas fa-snowflake"></i>
+                            Pre-Condition
+                        </button>
+                        <button class="control-btn" id="lockVehicleBtn">
+                            <i class="fas fa-lock"></i>
+                            Lock
+                        </button>
+                        <button class="control-btn" id="locateVehicleBtn">
+                            <i class="fas fa-search-location"></i>
+                            Locate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Energy Matrix -->
+                <div class="card energy-matrix">
+                    <div class="card-header">
+                        <h3><i class="fas fa-atom"></i> Energy Synchronization Matrix</h3>
+                        <div class="quantum-selector">
+                            <select class="cyber-dropdown" id="energyTimeframe">
+                                <option value="real-time">Real-time</option>
+                                <option value="weekly">Weekly Matrix</option>
+                                <option value="forecast">Quantum Forecast</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="matrix-display">
+                        <div class="energy-orb">
+                            <canvas id="energyMatrix" width="200" height="200"></canvas>
+                            <div class="orb-core">
+                                <div class="core-percentage" id="syncRate">87%</div>
+                                <div class="core-label">Sync Rate</div>
+                            </div>
+                        </div>
+                        <div class="matrix-particles" id="matrixParticles"></div>
+                    </div>
+                    <div class="sync-metrics">
+                        <div class="metric">
+                            <span class="metric-value" id="neuralFlowValue">247</span>
+                            <span class="metric-unit">kW</span>
+                            <span class="metric-label">Neural Flow</span>
+                        </div>
+                    </div>
+                    <div class="energy-efficiency">
+                        <div class="efficiency-bar">
+                            <div class="efficiency-label">
+                                <i class="fas fa-leaf"></i>
+                                <span>Eco Efficiency</span>
+                            </div>
+                            <div class="efficiency-progress">
+                                <div class="efficiency-fill" id="efficiencyFill" style="width: 89%"></div>
+                                <span class="efficiency-value" id="efficiencyValue">89%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quantum Navigator -->
+                <div class="card quantum-navigator">
+                    <div class="card-header">
+                        <h3><i class="fas fa-satellite-dish"></i> Quantum Route Optimizer</h3>
+                        <div class="nav-controls">
+                            <button class="nav-control-btn" id="refreshRouteBtn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="nav-control-btn" id="fullscreenMapBtn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="navigator-display">
+                        <div class="quantum-map" id="quantumMap">
+                            <div class="map-grid"></div>
+                            <div class="route-quantum">
+                                <div class="quantum-path"></div>
+                                <div class="energy-nodes">
+                                    <div class="node origin">
+                                        <i class="fas fa-home"></i>
+                                        <span class="node-label">Home</span>
+                                    </div>
+                                    <div class="node charging">
+                                        <i class="fas fa-bolt"></i>
+                                        <span class="node-label">Charge</span>
+                                    </div>
+                                    <div class="node destination">
+                                        <i class="fas fa-flag-checkered"></i>
+                                        <span class="node-label">Destination</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spatial-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="route-analytics">
+                        <div class="analytic">
+                            <span class="analytic-icon"><i class="fas fa-route"></i></span>
+                            <span class="analytic-text">Neural Distance: <span id="routeDistance">847km</span></span>
+                        </div>
+                        <div class="analytic">
+                            <span class="analytic-icon"><i class="fas fa-hourglass-half"></i></span>
+                            <span class="analytic-text">Quantum Time: <span id="routeTime">2.7h</span></span>
+                        </div>
+                    </div>
+                    <button class="optimize-route-btn" id="optimizeRouteBtn">
+                        <i class="fas fa-brain"></i>
+                        AI Optimize Route
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="dashboard-row">
+                <!-- Neural Analytics -->
+                <div class="card neural-analytics">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-area"></i> Neural Energy Analytics</h3>
+                        <div class="quantum-selector">
+                            <select class="cyber-dropdown" id="analyticsTimeframe">
+                                <option value="neural-week">Neural Week</option>
+                                <option value="quantum-month">Quantum Month</option>
+                                <option value="temporal-year">Temporal Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="analytics-overview">
+                        <div class="analytics-item home">
+                            <span class="analytics-dot"></span>
+                            <span class="analytics-name">Home Base</span>
+                            <span class="analytics-percentage" id="homePercentage">45%</span>
+                        </div>
+                        <div class="analytics-item work">
+                            <span class="analytics-dot"></span>
+                            <span class="analytics-name">Work Hub</span>
+                            <span class="analytics-percentage" id="workPercentage">31%</span>
+                        </div>
+                        <div class="analytics-item quantum">
+                            <span class="analytics-dot"></span>
+                            <span class="analytics-name">Quantum Grid</span>
+                            <span class="analytics-percentage" id="quantumPercentage">24%</span>
+                        </div>
+                    </div>
+                    <div class="neural-chart-container">
+                        <canvas id="neuralChart"></canvas>
+                        <div class="chart-overlay"></div>
+                    </div>
+                    <div class="analytics-insights">
+                        <div class="insight-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Peak usage: <strong>6-9 PM</strong></span>
+                        </div>
+                        <div class="insight-item">
+                            <i class="fas fa-trending-up"></i>
+                            <span>Efficiency improved by <strong>12%</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Station Network -->
+                <div class="card station-network" style="width: 671px;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-network-wired"></i> Neural Station Network</h3>
+                        <div class="quantum-selector">
+                            <select class="cyber-dropdown" id="stationFilter">
+                                <option value="proximity">Proximity Scan</option>
+                                <option value="fast">Quantum Fast</option>
+                                <option value="favorites">Neural Favorites</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="network-headers">
+                        <span>NEURAL HUB</span>
+                        <span>QUANTUM PORTS</span>
+                        <span>TEMPORAL</span>
+                        <span>SYNC</span>
+                    </div>
+                    <div class="network-container" id="stationNetworkContainer">
+                        <div class="station-node" data-station-id="neo-tokyo-hub">
+                            <div class="station-info">
+                                <div class="station-avatar">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="station-data">
+                                    <h4>Neo-Tokyo Energy Hub</h4>
+                                    <p>Sector 7 • Neural District</p>
+                                    <div class="station-features">
+                                        <span class="feature-tag"><i class="fas fa-wifi"></i> WiFi</span>
+                                        <span class="feature-tag"><i class="fas fa-coffee"></i> Café</span>
+                                        <span class="feature-tag"><i class="fas fa-shopping-cart"></i> Shop</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quantum-ports">
+                                <div class="port active" title="Available ports">7</div>
+                                <div class="port inactive" title="Occupied ports">3</div>
+                            </div>
+                            <div class="temporal-data">
+                                <div class="live-status">Live • <span class="current-time">09:30</span></div>
+                                <div class="next-available">Next • 14:30</div>
+                            </div>
+                            <button class="sync-btn" data-action="sync">
+                                <i class="fas fa-plug"></i>
+                                Neural Sync
+                            </button>
+                        </div>
+                        
+                        <div class="station-node" data-station-id="quantum-industrial">
+                            <div class="station-info">
+                                <div class="station-avatar">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div class="station-data">
+                                    <h4>Quantum Industrial Core</h4>
+                                    <p>Grid-47 • Manufacturing Zone</p>
+                                    <div class="station-features">
+                                        <span class="feature-tag"><i class="fas fa-truck"></i> Fleet</span>
+                                        <span class="feature-tag"><i class="fas fa-tools"></i> Service</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quantum-ports">
+                                <div class="port active">12</div>
+                                <div class="port inactive">1</div>
+                            </div>
+                            <div class="temporal-data">
+                                <div class="live-status">Live • <span class="current-time">08:15</span></div>
+                                <div class="next-available">Next • 16:45</div>
+                            </div>
+                            <button class="sync-btn" data-action="sync">
+                                <i class="fas fa-plug"></i>
+                                Neural Sync
+                            </button>
+                        </div>
+                        
+                        <div class="station-node" data-station-id="cyber-plaza">
+                            <div class="station-info">
+                                <div class="station-avatar">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="station-data">
+                                    <h4>Cyber Commerce Plaza</h4>
+                                    <p>Level-9 • Shopping District</p>
+                                    <div class="station-features">
+                                        <span class="feature-tag"><i class="fas fa-utensils"></i> Food</span>
+                                        <span class="feature-tag"><i class="fas fa-gamepad"></i> Games</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quantum-ports">
+                                <div class="port active">5</div>
+                                <div class="port inactive">7</div>
+                            </div>
+                            <div class="temporal-data">
+                                <div class="live-status">Live • <span class="current-time">10:20</span></div>
+                                <div class="next-available">Next • 18:30</div>
+                            </div>
+                            <button class="sync-btn" data-action="sync">
+                                <i class="fas fa-plug"></i>
+                                Neural Sync
+                            </button>
+                        </div>
+                    </div>
+                    <div class="network-summary">
+                        <div class="summary-item">
+                            <span class="summary-value" id="totalStations">247</span>
+                            <span class="summary-label">Total Stations</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-value" id="availablePorts">89</span>
+                            <span class="summary-label">Available Now</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-value" id="averageWait">2.3min</span>
+                            <span class="summary-label">Avg Wait</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Quick Actions Floating Panel -->
+        <div class="quick-actions-panel" id="quickActionsPanel">
+            <button class="quick-action-btn" id="emergencyChargeBtn" title="Emergency Charge">
+                <i class="fas fa-bolt"></i>
+            </button>
+            <button class="quick-action-btn" id="nearestStationBtn" title="Find Nearest Station">
+                <i class="fas fa-map-marker-alt"></i>
+            </button>
+            <button class="quick-action-btn" id="scheduleChargeBtn" title="Schedule Charging">
+                <i class="fas fa-calendar-alt"></i>
+            </button>
+            <button class="quick-action-btn" id="voiceCommandBtn" title="Voice Commands">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+
+        <!-- Floating Weather Widget -->
+        <!-- <div class="weather-widget" id="weatherWidget">
+            <div class="weather-icon">
+                <i class="fas fa-sun" id="weatherIcon"></i>
+            </div>
+            <div class="weather-info">
+                <div class="temperature" id="temperature">22°C</div>
+                <div class="weather-desc" id="weatherDesc">Sunny</div>
+                <div class="efficiency-impact">
+                    <i class="fas fa-leaf"></i>
+                    <span id="efficiencyImpact">+5% range</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="script.js"></script>
+</body>
+</html>

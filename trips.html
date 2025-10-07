@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (same head, links) -->
+  <title>Electra - My Trips</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font links ... -->
+</head>
+<body>
+  <div class="cyber-grid"></div>
+  <div class="ambient-light"></div>
+  <div class="container">
+    <header class="header">
+      <!-- ... same header as index.html ... -->
+    </header>
+    <main>
+      <div class="page-header">
+        <h1 class="page-title">Quantum Trips Timeline</h1>
+        <div class="page-subtitle">Trip history and plan your next quantum route</div>
+      </div>
+      <div class="dashboard-row">
+        <div class="card" style="flex:2;">
+          <div class="card-header"><i class="fas fa-route"></i> Trip Timeline</div>
+          <div class="timeline-container">
+            <!-- Example trip node -->
+            <div class="timeline-item">
+              <div class="timeline-marker completed"><i class="fas fa-check"></i></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>Neo-Tokyo → Cyber Plaza</h4>
+                  <span class="timeline-date">Today, 08:12</span>
+                </div>
+                <div class="timeline-details">
+                  <span class="detail-item"><i class="fa fa-bolt"></i> 355km</span>
+                  <span class="detail-item"><i class="fa fa-shield-alt"></i> Optimal Route</span>
+                </div>
+                <span class="timeline-status success"><i class="fa fa-check"></i> Completed</span>
+              </div>
+            </div>
+            <!-- more timeline items ... -->
+          </div>
+        </div>
+        <div class="card" style="flex:1;">
+          <div class="card-header"><i class="fas fa-location-arrow"></i> Plan New Trip</div>
+          <form id="tripPlannerForm" autocomplete="off" style="padding:14px;">
+            <div class="input-group">
+              <label><i class="fas fa-street-view start-marker"></i></label>
+              <input type="text" class="cyber-input" placeholder="Start Location">
+            </div>
+            <div class="input-group">
+              <label><i class="fas fa-flag end-marker"></i></label>
+              <input type="text" class="cyber-input" placeholder="End Location">
+            </div>
+            <div class="input-group">
+              <button class="plan-trip-btn" type="submit"><i class="fas fa-location-arrow"></i> Plan Quantum Trip</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- floating quick-actions as needed -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

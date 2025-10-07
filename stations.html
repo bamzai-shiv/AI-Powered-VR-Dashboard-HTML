@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (same head, links, fonts as index.html) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electra - Stations</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font links ... -->
+</head>
+<body>
+  <div class="cyber-grid"></div>
+  <div class="ambient-light"></div>
+  <div class="container">
+    <!-- Header -->
+    <!-- paste your header/nav/notifications/profile block here, unchanged -->
+    <header class="header">
+      <!-- ... same header as index.html ... -->
+    </header>
+    <main>
+      <div class="page-header">
+        <h1 class="page-title">Charging Station Directory</h1>
+        <div class="page-subtitle">Browse all network hubs & quick charge ports</div>
+      </div>
+      <div class="dashboard-row">
+        <div class="card station-network" style="flex:2;">
+          <div class="card-header">
+            <h3><i class="fas fa-charging-station"></i> Station List</h3>
+            <div class="quantum-selector">
+              <select class="cyber-dropdown" id="stationFilter">
+                <option value="proximity">Proximity</option>
+                <option value="highspeed">High Speed</option>
+                <option value="favorites">Favorites</option>
+              </select>
+            </div>
+          </div>
+          <div class="network-container">
+            <!-- Example station node -->
+            <div class="station-node">
+              <div class="station-info">
+                <div class="station-avatar"><i class="fas fa-building"></i></div>
+                <div class="station-data">
+                  <h4>Neo-Tokyo Energy Hub</h4>
+                  <p>Sector 7 • Neural District</p>
+                  <div class="station-features">
+                    <span class="feature-tag"><i class="fas fa-wifi"></i> WiFi</span>
+                    <span class="feature-tag"><i class="fas fa-coffee"></i> Café</span>
+                  </div>
+                </div>
+              </div>
+              <div class="quantum-ports">
+                <div class="port active">7</div>
+                <div class="port inactive">3</div>
+              </div>
+              <div class="temporal-data">
+                <div class="live-status">Live • 10:28</div>
+                <div class="next-available">Next • 16:15</div>
+              </div>
+              <button class="sync-btn"><i class="fas fa-plug"></i> Sync</button>
+            </div>
+            <!-- Repeat for more stations... -->
+          </div>
+          <div class="network-summary">
+            <div class="summary-item"><span class="summary-value">247</span><span class="summary-label">Total Stations</span></div>
+            <div class="summary-item"><span class="summary-value">89</span><span class="summary-label">Available Now</span></div>
+            <div class="summary-item"><span class="summary-value">2.3min</span><span class="summary-label">Avg Wait</span></div>
+          </div>
+        </div>
+        <div class="card" style="flex:1;">
+          <div class="card-header"><i class="fa fa-map-marked-alt"></i> Station Map</div>
+          <div style="height:340px;border-radius:18px;background:linear-gradient(110deg,#022c43 30%,#283469 100%);box-shadow:0 2px 10px #31fff326;text-align:center;color:#89e9ff;padding:80px 0;">[Map Area]</div>
+        </div>
+      </div>
+    </main>
+    <!-- floating widgets and quick-actions (as per index.html) -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
